@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+
+import argparse
+import subprocess
+import sys
+
+
+
+def init():
+	args = ['git', 'init']
+	subprocess.run(args)
+	return
+
+
+
+def add(files):
+	args = ['git', 'add'] + [f.name for f in files]
+	subprocess.run(args)
+	return
+
+
+
+def status():
+	args = ['git', 'status']
+	subprocess.run(args)
+	return
+
+
+
+def commit(message, files):
+	args = ['git', 'commit', '-m', message] + [f.name for f in files]
+	subprocess.run(args)
+	return
+
+
+
+def main(args):
+	if args.command == 'init':
+		init()
+	if args.command == 'add':
+		add(args.files)
+	if args.command == 'status':
+		status()
+	if args.command == 'commit':
+		commit(args.message, args.files)
+
+	return
+
+
+
+if __name__ == '__main__':
+	parser = argparse.ArgumentParser(description="Human-oriented UI for git")
+	subparsers = parser.add_subparsers(dest='command', help="Command to run", required=True)
+
+	# status
+	parser_status = subparsers.add_parser('status')
+
+	# add
+	parser_add = subparsers.add_parser('add')
+	parser_add.add_argument('files', type=argparse.FileType('r'), nargs='+')
+
+	# init
+	parser_init = subparsers.add_parser('init')
+
+	# commit
+	parser_commit = subparsers.add_parser('commit')
+	parser_commit.add_argument('--message', '-m', type=str, required=True)
+	parser_commit.add_argument('files', type=argparse.FileType('r'), nargs='*')
+
+	args = parser.parse_args()
+	main(args)
