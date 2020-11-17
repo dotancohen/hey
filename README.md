@@ -5,7 +5,7 @@ Human-oriented UI for git.
 
 ## What is meant by "Human-oriented UI for git"?
 
-Git is easy, right? No, actually, [git is hard](https://news.ycombinator.com/item?id=25121416). This application should make git more intuitive to use.
+Git is easy, right? No, actually, [git is](https://news.ycombinator.com/item?id=25121416) [hard](https://ohshitgit.com/). This application should make git more intuitive to use.
 
 
 ## Why the funny name?
