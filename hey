@@ -41,6 +41,27 @@ def diff():
 
 
 
+def log():
+	args = ['git', 'log']
+	subprocess.run(args)
+	return
+
+
+
+def push():
+	args = ['git', 'push']
+	subprocess.run(args)
+	return
+
+
+
+def pull():
+	args = ['git', 'pull']
+	subprocess.run(args)
+	return
+
+
+
 def main(args):
 	if args.command == 'init':
 		init()
@@ -52,6 +73,12 @@ def main(args):
 		commit(args.message, args.files)
 	if args.command == 'diff':
 		diff()
+	if args.command == 'log':
+		log()
+	if args.command == 'push':
+		push()
+	if args.command == 'pull':
+		pull()
 
 	return
 
@@ -78,6 +105,15 @@ if __name__ == '__main__':
 
 	# diff
 	parser_diff = subparsers.add_parser('diff')
+
+	# log
+	parser_log = subparsers.add_parser('log')
+
+	# push
+	parser_push = subparsers.add_parser('push')
+
+	# pull
+	parser_pull = subparsers.add_parser('pull')
 
 	args = parser.parse_args()
 	main(args)
