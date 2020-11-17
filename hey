@@ -34,6 +34,13 @@ def commit(message, files):
 
 
 
+def diff():
+	args = ['git', 'diff']
+	subprocess.run(args)
+	return
+
+
+
 def main(args):
 	if args.command == 'init':
 		init()
@@ -43,6 +50,8 @@ def main(args):
 		status()
 	if args.command == 'commit':
 		commit(args.message, args.files)
+	if args.command == 'diff':
+		diff()
 
 	return
 
@@ -66,6 +75,9 @@ if __name__ == '__main__':
 	parser_commit = subparsers.add_parser('commit')
 	parser_commit.add_argument('--message', '-m', type=str, required=True)
 	parser_commit.add_argument('files', type=argparse.FileType('r'), nargs='*')
+
+	# diff
+	parser_diff = subparsers.add_parser('diff')
 
 	args = parser.parse_args()
 	main(args)
