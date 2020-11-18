@@ -55,6 +55,8 @@ $ hey commit remove (Prompt to ask what to do with the code: leave as is or roll
 $ hey commit remove --roll-back / -r
 $ hey commit remove --leave-as-is / -l
 $ hey commit switch
+
+$ hey ignore foo.c (add file foo.c to the .gitignore file)
 ```
 
 

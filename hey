@@ -12,6 +12,7 @@ import diff
 import log
 import push
 import pull
+import ignore
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser(description="Human-oriented UI for git")
@@ -25,6 +26,7 @@ if __name__ == '__main__':
 	log.add_subparser(subparsers)
 	push.add_subparser(subparsers)
 	pull.add_subparser(subparsers)
+	ignore.add_subparser(subparsers)
 
 	args = parser.parse_args()
 
