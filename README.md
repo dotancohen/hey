@@ -42,4 +42,21 @@ index c7d25f5..4250fda 100644
 @@ -1,4 +1,4 @@
 -# Hey
 +# [Hey](https://github.com/dotancohen/hey/)
+
+$ hey add README.md
+
+$ hey commit -m "Update readme"
+[master d23f976] Update readme
+ 1 file changed, 32 insertions(+), 1 deletion(-)
+
+$ hey push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 983 bytes | 983.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:dotancohen/hey.git
+   43dd955..d23f976  master -> master
 ```
